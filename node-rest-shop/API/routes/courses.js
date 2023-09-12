@@ -38,7 +38,8 @@ router.post('/:id', (req, res, next) => {
     const id = req.params.id;
     if(id === "test"){
         res.status(200).json({
-            message: 'Not implemented route'
+            message: 'Not implemented route',
+            id: req.params.id
         });
     }
     else{

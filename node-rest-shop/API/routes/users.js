@@ -10,8 +10,13 @@ router.get('/', (req, res, next) => {
 
 //Adding a user
 router.post('/', (req, res, next) => {
+    // <!> To change after defining database tables
+    const user = {
+        name: req.body.name
+    }
     res.status(200).json({
-        message: 'Not implemented route'
+        message: 'Not implemented route',
+        createdUser: user
     });
 });
 
