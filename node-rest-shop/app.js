@@ -8,15 +8,35 @@ const categoriesRoute = require('./API/routes/categories');
 const coursesRoute = require('./API/routes/courses');
 const usersRoute = require('./API/routes/users');
 
-const dbUrl = 'mongodb://localhost:27017/api';
+const { MongoClient, ServerApiVersion } = require('mongodb');
 
-mongoose.connect(dbUrl, { useNewUrlParser: true, useUnifiedTopology: true })
-  .then(() => {
-    console.log('Connexion à MongoDB établie avec succès');
-  })
-  .catch((err) => {
-    console.error('Erreur de connexion à MongoDB :', err);
-  });
+const uri = "mongodb+srv://karelsvbd:4lg41kHFZGvUYCsQ@schooldb.bmanhqw.mongodb.net/?retryWrites=true&w=majority";
+//const uri = "mongodb://localhost:27017";
+
+// Create a MongoClient with a MongoClientOptions object to set the Stable API version
+const client = new MongoClient(uri, {
+  serverApi: {
+    version: ServerApiVersion.v1,
+    strict: true,
+    deprecationErrors: true,
+  }
+});
+
+
+
+async function run() {
+  try {
+    // Connect the client to the server    (optional starting in v4.7)
+    await client.connect();
+    // Send a ping to confirm a successful connection
+    await client.db("schooldb").command({ ping: 1 });
+    console.log("Pinged your deployment. You successfully connected to MongoDB!");
+  } finally {
+    // Ensures that the client will close when you finish/error
+    await client.close();
+  }
+}
+run().catch(console.dir);
 
 app.use(morgan('dev'));
 app.use(bodyParser.urlencoded({
@@ -24,7 +44,7 @@ app.use(bodyParser.urlencoded({
 }))
 app.use(bodyParser.json());
 
-//Allowing CORS errors
+//Avoiding CORS errors
 app.use((req, res, next) => {
     //Allowing all domains
     res.header('Access-Control-Allow-Origin', '*');

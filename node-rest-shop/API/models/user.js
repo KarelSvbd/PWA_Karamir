@@ -4,7 +4,10 @@ const mongoose = require('mongoose');
 
 const userSchema = mongoose.Schema({
    _id: mongoose.Schema.Types.ObjectId,
-   name: String,
+   category: String,
+   first_name: String,
+   last_name: String,
+   registered_courses: Array
 });
 
 module.exports = mongoose.model('User', userSchema);

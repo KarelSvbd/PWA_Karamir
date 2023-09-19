@@ -27,8 +27,15 @@ Nous continuons le développement de l'API.
     - Karel
         - [Suivi du tutoriel](https://www.youtube.com/watch?v=0oXYLzuucwE&list=PL55RiY5tL51q4D-B63KBnygU6opNPFk_q)
             - Creation des premières routes
+            - Ajout des modèles avec mangoose
     - Amir :
         - Suite du travail sur les EndPoint, creation d'un fichier obsidian pour le diagrame.
-        - 
+
+## 19.09.2023
+Nous devons terminer l'API aujourd'hui.
+
+- 8h05
+    - Karel : Creation des modèles mangoose en fonction de la bdd mango db
+    
 
 
