@@ -57,10 +57,30 @@ router.post('/', (req, res, next) => {
 });
 
 //Changes a category
-router.put('/', (req, res, next) => {
-    res.status(200).json({
-        message: 'Not implemented route'
-    });
-});
+// Changes a category
+router.put('/:categoryId', (req, res, next) => {
+    const categoryId = req.params.categoryId;
 
+    // Créer un objet de mise à jour avec les champs que vous souhaitez mettre à jour
+    const updateOps = {};
+    for (const prop in req.body) {
+        updateOps[prop] = req.body[prop];
+    }
+
+    Category.updateOne({ _id: categoryId }, { $set: updateOps })
+        .exec()
+        .then(result => {
+            console.log(result);
+            res.status(200).json({
+                message: 'Category updated',
+                updatedCategory: result
+            });
+        })
+        .catch(err => {
+            console.log(err);
+            res.status(500).json({
+                error: err
+            });
+        });
+});
 module.exports = router;
