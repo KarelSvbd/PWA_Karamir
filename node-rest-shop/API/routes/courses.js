@@ -2,11 +2,13 @@ const express = require('express');
 const router = express.Router();
 const mongoose = require('mongoose');
 
+// Connect to MongoDB database
 mongoose.connect("mongodb+srv://karelsvbd:4lg41kHFZGvUYCsQ@schooldb.bmanhqw.mongodb.net/schooldb", {
     useNewUrlParser: true,
     useUnifiedTopology: true
 });
 
+// Import Course model
 const Course = require('../models/course');
 
 // Get all courses
@@ -23,7 +25,7 @@ router.get('/', (req, res, next) => {
         });
 });
 
-//Adding a course
+// Add a course
 router.post('/', (req, res, next) => {
     console.log(req.body);
     const course = new Course({
@@ -35,11 +37,11 @@ router.post('/', (req, res, next) => {
 
     console.log(course);
     
-    // Sauvegarde du cours dans la base de données
+    // Save the course to the database
     course.save().then(result => {
             console.log(result);
 
-            // Envoyer une réponse HTTP une fois que la sauvegarde est terminée
+            // Send an HTTP response once the save is complete
             res.status(201).json({
                 message: 'Added course',
                 createdCourse: result
@@ -48,16 +50,14 @@ router.post('/', (req, res, next) => {
         .catch(err => {
             console.log(err);
 
-            // En cas d'erreur, envoyer une réponse d'erreur au client
+            // In case of error, send an error response to the client
             res.status(500).json({
                 error: err
             });
         });
 });
 
-//With id
-
-//get one course
+// Get a single course by ID
 router.get('/:id', (req, res, next) => {
     const id = req.params.id;
     Course.findById(id)
@@ -72,25 +72,5 @@ router.get('/:id', (req, res, next) => {
         })
 });
 
-//register to a course
-router.post('/:id', (req, res, next) => {
-    
-});
-
-//change a course mark
-router.put('/:id', (req, res, next) => {
-    const id = req.params.id;
-    if(id === "test"){
-        res.status(200).json({
-            message: 'Not implemented route'
-        });
-    }
-    else{
-        res.status(200).json({
-            message: 'Not implemented route'
-        });
-    }
-    
-});
-
+// Export the router
 module.exports = router;
