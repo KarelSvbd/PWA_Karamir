@@ -5,7 +5,7 @@ Pour réaliser l'API nous avons utilisé Node JS pour le développement et Postm
 ## Endpoints API (Schéma)
 
 Voici la liste des endpoints API que nous avons déterminé.
-![Endpoints](images/Endpoints.png)
+![Endpoints](images/Endpoints_final.png)
 
 ## Endpoints API (Node JS/Postman)
 
@@ -24,4 +24,4 @@ Les différents outils que nous avons utilisés pour la réalisation de la base 
 	- Mongosh (Shell Mongo DB)
 	- Mongo DB Atlas
 ### Schéma de la base de données
-![Schéma de base de données](images/schooldb.png)
+![Schéma de base de données](images/schooldb_final.png)
