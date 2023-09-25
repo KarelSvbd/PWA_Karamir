@@ -7,6 +7,7 @@ const mongoose = require('mongoose');
 const categoriesRoute = require('./API/routes/categories');
 const coursesRoute = require('./API/routes/courses');
 const usersRoute = require('./API/routes/users');
+const notesRoute = require('./API/routes/notes');
 
 const { MongoClient, ServerApiVersion } = require('mongodb');
 
@@ -60,6 +61,7 @@ app.use((req, res, next) => {
 app.use('/categories', categoriesRoute);
 app.use('/courses', coursesRoute);
 app.use('/users', usersRoute);
+app.use('/notes', notesRoute);
 
 //Error Handeling
 app.use((req, res, next) => {
