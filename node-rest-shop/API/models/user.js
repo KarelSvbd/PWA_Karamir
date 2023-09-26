@@ -7,7 +7,9 @@ const userSchema = mongoose.Schema({
    category: String,
    first_name: String,
    last_name: String,
-   registered_courses: Array
+   registered_courses: Array,
+   password: String,
+   email: String
 });
 
 module.exports = mongoose.model('User', userSchema);

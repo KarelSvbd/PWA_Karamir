@@ -31,7 +31,9 @@ router.post('/', (req, res, next) => {
         category: req.body.category,
         first_name: req.body.first_name,
         last_name: req.body.last_name,
-        registered_courses: req.body.registered_courses
+        registered_courses: req.body.registered_courses,
+        password: req.body.password,
+        email: req.body.email
     });
 
     console.log(user);
@@ -55,6 +57,26 @@ router.post('/', (req, res, next) => {
             });
         });
 });
+
+// Login to an existing account using email and password
+router.post('/login', (req, res, next) => {
+    User.find({email: req.body.email, password: req.body.password})
+        .exec()
+        .then(docs => {
+            console.log(docs);
+            if(docs.length > 0){
+                res.status(200).json(docs);
+            }else{
+                res.status(404).json({message: 'No valid entry found for provided email and password'});
+            }
+        })
+        .catch(err => {
+            console.log(err);
+            res.status(500).json({ error: err });
+        });
+});
+
+
 
 
 module.exports = router;
