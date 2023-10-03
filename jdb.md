@@ -44,6 +44,8 @@ Nous devons terminer l'API aujourd'hui.
 ----
 ## Developpment de du frontend
 
+## 26.09.2023
+
 À présent, il faut developper l'application frontend. Après la présentation de Monsieur Zanardi, nous avons commencé à créer le site en TypeScript. Pour ce faire nous avons installé le language grâce à npm puis nous l'avons compilé grâce à tsc.
 
 - Karel : Découverte du TypeScript
@@ -54,3 +56,17 @@ Nous devons terminer l'API aujourd'hui.
     - Création de la page de connexion
 
 On s'est rendu compte que notre api n'avait pas de système de login ni de connexion, par conséquent nous devons légerement retraivailler la base et les points d'entrées.
+
+## 03.10.2023
+
+Nous continuons à developper le front end de l'API. La dernière fois nous avons presque terminé le login, il nous manquais juste la redirection en cas de réussite de la connexion. Par la suite, nous allons devoir stoquer les données dans une BDD IndexedDB afin de les faire passer dans les autres pages et continuer à developper les autres fonctionnalités.
+
+- Karel
+    - Fin du login
+        - Demande à Mr Zanardi pour la correction du problème du login.
+        - Même si la requête fonctionne et que l'API renvoie un code 200, il nous est impossible de l'interpreter dans le code. Le problème vennait du fait que on cherchait une donnée qui n'existait pas.
+    - Travail sur l'affichage des cours en fonction des inscriptions de l'utlisateur
+-  Amir
+    - Refonte de l'HTML et creation du server.
+        - Creation d'une bonne ergonomie pour l'application.
+    - Nous avons fait en sorte de nous connecter sur le même travail afin de simplifier le travail en commun.
