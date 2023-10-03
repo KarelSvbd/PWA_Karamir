@@ -8,6 +8,7 @@ mongoose.connect("mongodb+srv://karelsvbd:4lg41kHFZGvUYCsQ@schooldb.bmanhqw.mong
 });
 
 const User = require('../models/user');
+const Course = require('../models/course');
 
 // Get all users
 router.get('/', (req, res, next) => {
@@ -75,6 +76,27 @@ router.post('/login', (req, res, next) => {
             res.status(500).json({ error: err });
         });
 });
+
+
+// Get all the courses of a user and return courses data
+router.get('/courses/:id', (req, res, next) => {
+    const id = req.params.id;
+    User.findById(id, 'registered_courses')
+      .exec()
+      .then(user => {
+        console.log(user);
+        const courseIds = user.registered_courses;
+        return Course.find({ _id: { $in: courseIds } }).exec();
+      })
+      .then(courses => {
+        console.log(courses);
+        res.status(200).json(courses);
+      })
+      .catch(err => {
+        console.log(err);
+        res.status(500).json({ error: err });
+      });
+  });
 
 
 
