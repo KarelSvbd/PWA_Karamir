@@ -70,3 +70,13 @@ Nous continuons à developper le front end de l'API. La dernière fois nous avon
     - Refonte de l'HTML et creation du server.
         - Creation d'une bonne ergonomie pour l'application.
     - Nous avons fait en sorte de nous connecter sur le même travail afin de simplifier le travail en commun.
+    - Affichage des cours sur l'html via l'API
+
+## 10.10.2023
+
+Nous devons continer le devellopement de l'API, l'objectif du jour est d'ajouter le système d'inscrition aux cours, d'ajouter les images et de paufiner la documentaiton. Pour le système d'images, nous allons essayer pexel et son api.
+
+- Karel
+    - 
+- Amir
+    - Implémentation du clique sur un cours afin de permettre l'appel API pour s'inscrire sur un cous

@@ -1,4 +1,9 @@
 "use strict";
+/*
+* Authors : Karamir
+* Date : 03.10.2023
+* Description doing things
+*/
 var _a;
 // open a connection to the database
 const request = indexedDB.open("myDatabase", 1);

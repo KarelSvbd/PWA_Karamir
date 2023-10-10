@@ -104,6 +104,34 @@ router.get('/courses/:id', (req, res, next) => {
       });
   });
 
+  router.post('/:id/courses', (req, res, next) => {
+    const userId = req.params.id;
+    const courseId = req.body.courseId;
+  
+    User.findById(userId)
+      .exec()
+      .then(user => {
+        if (!user) {
+          return res.status(404).json({ message: 'User not found' });
+        }
+  
+        if (user.registered_courses.includes(courseId)) {
+          return res.status(400).json({ message: 'Course already registered' });
+        }
+  
+        user.registered_courses.push(courseId);
+        return user.save();
+      })
+      .then(result => {
+        console.log(result);
+        res.status(200).json({ message: 'Course added to registered courses', user: result });
+      })
+      .catch(err => {
+        console.log(err);
+        res.status(500).json({ error: err });
+      });
+  });
+
 
 
 
