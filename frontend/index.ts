@@ -1,3 +1,9 @@
+/*
+* Authors : Karamir
+* Date : 03.10.2023
+* Description doing things
+*/
+
 const apiUrl = 'http://10.5.51.40:3000/courses';
 
 fetch(apiUrl)

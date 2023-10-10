@@ -1,3 +1,9 @@
+/*
+* Authors : Karamir
+* Date : 03.10.2023
+* Description doing things
+*/
+
 const mongoose = require('mongoose');
 
 //à défninir en fonction des données dans la table
