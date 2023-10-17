@@ -77,6 +77,18 @@ Nous continuons à developper le front end de l'API. La dernière fois nous avon
 Nous devons continer le devellopement de l'API, l'objectif du jour est d'ajouter le système d'inscrition aux cours, d'ajouter les images et de paufiner la documentaiton. Pour le système d'images, nous allons essayer pexel et son api.
 
 - Karel
+    - Travail sur le système d'inscription aux cours
+- Amir
+    - Implémentation du clique sur un cours afin de permettre l'appel API pour s'inscrire sur un cours.
+    - Implémementation du système d'image par nom de cours.
+
+Nous pensons avoir terminé la partie frontend de l'application.
+
+### 17.10.2023
+
+Suite à la présentation de Monsieur Zanardi, nous devons commencer les PWA. Pour ce faire, il nous a mis à disposition un login FTP. Cependant, avant de mettre notre application sur le site, nous allons devoir mettre notre API en ligne. Monsieur Zanardi nous a conseillé d'utiliser render.com pour l'héberger.
+
+- Karel
     - 
 - Amir
-    - Implémentation du clique sur un cours afin de permettre l'appel API pour s'inscrire sur un cous
+    - Documentation
