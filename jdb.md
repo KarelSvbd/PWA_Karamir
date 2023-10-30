@@ -30,7 +30,8 @@ Nous continuons le développement de l'API.
             - Creation des premières routes
             - Ajout des modèles avec mangoose
     - Amir :
-        - Suite du travail sur les EndPoint, creation d'un fichier obsidian pour le diagrame.
+        - Suite du travail sur les EndPoint, creation d'un fichier obsidian pour le diagramme.
+        - Création d'un diagramme avec la liste de tous les endpoints -> reflexion de l'organisation des endpoints
 
 ## 19.09.2023
 Nous devons terminer l'API aujourd'hui.
@@ -40,6 +41,8 @@ Nous devons terminer l'API aujourd'hui.
         - Test Postman
     - Amir : Mise à jour des endpoints et collection de la base mangoDB
         - Documentation du projet API du côté BDD
+        - Modifcation du diagramme API selon les nouveaux endpoints
+        - Création d'un diagramme -> Schéma de la base de données
 
 ----
 ## Developpment de du frontend
@@ -54,6 +57,7 @@ Nous devons terminer l'API aujourd'hui.
 
 - Amir : Recherche et application du style du frontend
     - Création de la page de connexion
+    - Je suis rentré car j'étais malade
 
 On s'est rendu compte que notre api n'avait pas de système de login ni de connexion, par conséquent nous devons légerement retraivailler la base et les points d'entrées.
 
@@ -89,6 +93,8 @@ Nous pensons avoir terminé la partie frontend de l'application.
 Suite à la présentation de Monsieur Zanardi, nous devons commencer les PWA. Pour ce faire, il nous a mis à disposition un login FTP. Cependant, avant de mettre notre application sur le site, nous allons devoir mettre notre API en ligne. Monsieur Zanardi nous a conseillé d'utiliser render.com pour l'héberger.
 
 - Karel
-    - 
+    - Déploiement du projet sur un serveur distant à l'aide de github
+    - Exportation sous postman des tests avec les nouveaux endpoints
 - Amir
-    - Documentation
+    - Documentation du code coté backend et frontend
+    - Implémentation de l'API quexel
