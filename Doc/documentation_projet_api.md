@@ -4,7 +4,7 @@ Pour réaliser l'API nous avons utilisé Node JS pour le développement et Postm
 ## Endpoints API (Schéma)
 
 Voici la liste des endpoints API que nous avons déterminé.
-![Endpoints](Endpoints.png)
+![Endpoints](images/endpoints_final.png)
 Pour l'endpoint login, il faut envoyer le mot de passe en sha256.
 
 ## Endpoints API (Node JS/Postman)
@@ -22,7 +22,7 @@ Les différents outils que nous avons utilisés pour la réalisation de la base 
 	- Mongosh (Shell Mongo DB)
 	- Mongo DB Atlas
 ### Schéma de la base de données
-![Endpoints](schooldb.png)
+![Endpoints](images/schooldb_final.png)
 
 # Structure de l'application
 
