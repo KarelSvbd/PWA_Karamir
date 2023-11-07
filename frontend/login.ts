@@ -21,7 +21,7 @@ document.querySelector("#submit")?.addEventListener("click", () => {
   const password = (document.querySelector("#password") as HTMLInputElement)?.value;
 
   // send a post request to the backend to check the login by passing the data in the body in json and encrypting the password in sha256
-  fetch("http://10.5.51.40:3000/users/login", {
+  fetch("https://backendudewish.onrender.com/users/login", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",

@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const apiKey = 'GtgoB6opcDmSkbB1iT8mrTEUh7Te3VWt3feoVe7FccyOYXc4AGcTMdCq';
-const apiUrl = 'http://10.5.51.40:3000/courses';
+const apiUrl = 'https://backendudewish.onrender.com/courses';
 fetch(apiUrl)
     .then(response => {
     if (!response.ok) {

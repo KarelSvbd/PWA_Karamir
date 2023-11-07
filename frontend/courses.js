@@ -15,7 +15,7 @@ indexedDBRequest.onsuccess = (event) => {
         }
         else {
             const id_user = data[0]._id;
-            const apiUrl3 = `http://10.5.51.40:3000/users/courses/${id_user}`;
+            const apiUrl3 = `https://backendudewish.onrender.com/users/courses/${id_user}`;
             fetch(apiUrl3)
                 .then(response => {
                 if (!response.ok) {
