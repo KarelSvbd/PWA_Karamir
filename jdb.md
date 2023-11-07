@@ -98,3 +98,21 @@ Suite à la présentation de Monsieur Zanardi, nous devons commencer les PWA. Po
 - Amir
     - Documentation du code coté backend et frontend
     - Implémentation de l'API quexel
+
+### 31.10.2023
+
+Présentation et évaluation de notre projet auprès de Monsieur Zanardi, cela a pris une grande partie du cours.
+Nous avons ensuite effectué des recherches concernant la création d'une PWA.
+
+### 07.11.2023
+
+Création d'une PWA, le but est de pouvoir télécharger l'application depuis une page web.
+
+- Karel
+    - Ajout du manifest
+    - Ajout du service worker
+    - Faire en sorte qu'une fois que l'utilisateur s'est connecté, il reste connecté et qu'il n'ai pas besoin de saisir son mot de passe à chaque fois.
+- Amir
+    - Documentation
+    - Test -> L'application ne marche pas sur le navigateur Brave mais fonctionne parfaitement sur les autres
+    - Test -> L'application a pu être télécharger depuis un navigateur, le navigateur Brave reste à éviter
