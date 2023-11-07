@@ -70,7 +70,7 @@ function ClickCourse(id, courseName) {
                 else {
                     const id_user = data[0]._id;
                     console.log(id_user);
-                    const apiUrl = `http://10.5.51.40:3000/users/${id_user}/courses`;
+                    const apiUrl = `https://backendudewish.onrender.com/users/${id_user}/courses`;
                     fetch(apiUrl, {
                         method: 'POST',
                         headers: {
