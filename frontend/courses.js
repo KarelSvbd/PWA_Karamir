@@ -141,3 +141,24 @@ function ClickCourseNote(idCourse) {
         }
     }
 }
+// Fonction de déconnexion
+function logout() {
+    // Supprimer toutes les données de IndexedDB
+    clearIndexedDBData();
+    // Rediriger vers la page d'accueil
+    window.location.href = "./login.html";
+}
+// Fonction pour supprimer toutes les données de IndexedDB
+function clearIndexedDBData() {
+    // Ouverture de la base de données
+    const indexedDBRequest = indexedDB.open("myDatabase", 1);
+    indexedDBRequest.onsuccess = (event) => {
+        // Récupère la base de données
+        const db = event.target.result;
+        const transaction = db.transaction("myObjectStore", "readwrite");
+        // Récupère la table myObjectStore
+        const objectStore = transaction.objectStore("myObjectStore");
+        // Supprimer tous les enregistrements
+        objectStore.clear();
+    };
+}

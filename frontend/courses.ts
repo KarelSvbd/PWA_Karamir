@@ -164,3 +164,30 @@ function ClickCourseNote(idCourse: string) {
   
   
 }
+
+// Fonction de déconnexion
+function logout(): void {
+  // Supprimer toutes les données de IndexedDB
+  clearIndexedDBData();
+
+  // Rediriger vers la page d'accueil
+  window.location.href = "./login.html";
+}
+
+// Fonction pour supprimer toutes les données de IndexedDB
+function clearIndexedDBData(): void {
+  // Ouverture de la base de données
+  const indexedDBRequest = indexedDB.open("myDatabase", 1);
+
+  indexedDBRequest.onsuccess = (event: Event) => {
+    // Récupère la base de données
+    const db = (event.target as IDBOpenDBRequest).result;
+
+    const transaction = db.transaction("myObjectStore", "readwrite");
+    // Récupère la table myObjectStore
+    const objectStore = transaction.objectStore("myObjectStore");
+
+    // Supprimer tous les enregistrements
+    objectStore.clear();
+  };
+}

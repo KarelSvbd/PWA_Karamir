@@ -1,45 +1,43 @@
 "use strict";
 /*
 * Authors : Karamir
-* Date : 03.10.2023
-* Description doing things
+* Date    : 14.11.2023
+* Desc.   : Login of the application
 */
 var _a;
-// Ouvrir une connexion à la base de données
+// open a connection to the database
 const request = indexedDB.open("myDatabase", 1);
-// Créer l'object store et définir le schéma
 request.onupgradeneeded = (event) => {
     const db = request.result;
-    if (!db.objectStoreNames.contains("myObjectStore")) {
-        const objectStore = db.createObjectStore("myObjectStore", { keyPath: "_id" });
-        objectStore.createIndex("email", "email", { unique: true });
-    }
+    const objectStore = db.createObjectStore("myObjectStore", { keyPath: "_id" });
+    objectStore.createIndex("email", "email", { unique: true });
 };
-// Obtenir l'élément HTML avec l'ID "submit" et ajouter un gestionnaire d'événements avec le sélecteur de requête
-(_a = document.querySelector("#submit")) === null || _a === void 0 ? void 0 : _a.addEventListener("click", () => {
-    var _a, _b;
-    // Obtenir les valeurs des champs d'entrée
-    const email = (_a = document.querySelector("#email")) === null || _a === void 0 ? void 0 : _a.value;
-    const password = (_b = document.querySelector("#password")) === null || _b === void 0 ? void 0 : _b.value;
-    // Vérifier si l'utilisateur est déjà enregistré dans IndexedDB
+// open the connection to the database and check IndexedDB data on success
+request.onsuccess = (event) => {
+    checkIndexedDBData((hasData) => {
+        if (hasData) {
+            window.location.href = "./index.html";
+        }
+    });
+};
+// create the object store and define the schema
+request.onupgradeneeded = (event) => {
     const db = request.result;
-    const transaction = db.transaction("myObjectStore", "readonly");
-    const objectStore = transaction.objectStore("myObjectStore");
-    const emailIndex = objectStore.index("email");
-    const getRequest = emailIndex.get(email);
-    /* Interaction avec IDB,
-      Vérification si l'utilisateur n'est pas déjà connecté, si oui, redirection.
-      Sinon, stockage des données
-    */
-    getRequest.onsuccess = (event) => {
-        const request = event.target;
-        const userData = request.result;
-        if (userData) {
-            console.log("User data found in IndexedDB");
-            window.location.href = "./index.html"; // Rediriger vers index.html
+    const objectStore = db.createObjectStore("myObjectStore", { keyPath: "_id" });
+    objectStore.createIndex("email", "email", { unique: true });
+};
+// get the element from html file with id="submit" and add an event listener with the query selector
+(_a = document.querySelector("#submit")) === null || _a === void 0 ? void 0 : _a.addEventListener("click", () => {
+    checkIndexedDBData((hasData) => {
+        var _a, _b;
+        if (hasData) {
+            window.location.href = "./index.html";
         }
         else {
-            console.log("User data not found in IndexedDB");
+            // get the values from the input fields
+            const email = (_a = document.querySelector("#email")) === null || _a === void 0 ? void 0 : _a.value;
+            const password = (_b = document.querySelector("#password")) === null || _b === void 0 ? void 0 : _b.value;
+            // send a post request to the backend to check the login by passing the data in the body in json and encrypting the password in sha256
             fetch("https://backendudewish.onrender.com/users/login", {
                 method: "POST",
                 headers: {
@@ -53,6 +51,7 @@ request.onupgradeneeded = (event) => {
                 .then((response) => response.json())
                 .then((data) => {
                 console.log(data);
+                // if the login is successful, store the data in IndexedDB and redirect to the main page
                 if (data[0]._id) {
                     const db = request.result;
                     const transaction = db.transaction("myObjectStore", "readwrite");
@@ -64,14 +63,39 @@ request.onupgradeneeded = (event) => {
                     };
                 }
                 else {
+                    // else show an error message
                     console.error(data.message);
                 }
             })
                 .catch((error) => console.error(error));
         }
-    };
-    getRequest.onerror = (event) => {
-        const request = event.target;
-        console.error("Error checking IndexedDB: " + request.error);
-    };
+    });
 });
+// Function to check if there are data in IndexedDB
+function checkIndexedDBData(callback) {
+    const db = request.result;
+    if (db) {
+        const transaction = db.transaction("myObjectStore", "readonly");
+        const objectStore = transaction.objectStore("myObjectStore");
+        const getAllRequest = objectStore.getAll();
+        getAllRequest.onsuccess = (event) => {
+            const data = getAllRequest.result;
+            console.log(event);
+            console.log(data);
+            if (data && data.length > 0) {
+                console.log("IndexedDB contains data:", data);
+                callback(true);
+            }
+            else {
+                console.log("IndexedDB is empty or does not exist");
+                callback(false);
+            }
+        };
+        getAllRequest.onerror = (event) => {
+            console.error("Error checking IndexedDB: " + getAllRequest.error);
+        };
+    }
+    else {
+        console.error("IndexedDB is null");
+    }
+}

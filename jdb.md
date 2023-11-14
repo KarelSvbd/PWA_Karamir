@@ -116,3 +116,27 @@ Création d'une PWA, le but est de pouvoir télécharger l'application depuis un
     - Documentation
     - Test -> L'application ne marche pas sur le navigateur Brave mais fonctionne parfaitement sur les autres
     - Test -> L'application a pu être télécharger depuis un navigateur, le navigateur Brave reste à éviter
+
+### 14.11.2023
+
+L'objectif du jour est d'implémenter le stockage des données dans la indexedb. Cette fonctionnalité est déjà présente au niveau de l'utilisateur, il faut que l'on l'implémente également dans les cours. Nous allons procéder de la façon suivante :
+1. Demander la liste des cours distants
+2. Demander la liste des cours en local
+3. Comparer les deux et modifier les données en local en cas de changement
+
+- Karel  
+    - Travail sur le login  
+        - Notre objectif est de répliquer le système de session / cookies pour notre connexion. Pour ce faire, nous vérifions si il y a des données présentes dans indexed db. Si c'est le cas, l'utilisateur est regirigée vers la page d'accueil. Dans le cas contraire, il lui est demandé de se connecter.
+        - Nous rencontrons un problème. Le système mantionné précédement ne fonctionne pas. Monsieur Zanari nous demande de commencer voir quelle données sont enregistré dans le IndexDB.  
+        - Nous confirmons que les données sont bel et bien stockés dans la base locale. Par conséquent, le problème se situe au niveau du test.
+        - Nous avons trouvé le bug. L'erreur vennait simplement du code en lui même. en effet, nous avions des problème avec la gestion asyncrone. Une erreur qui est corrigée à présent.
+    - Ajout de la déconnexion
+        - Suppression des données de la table indexeddb et renvoi à la page de login
+- Amir
+    - Correction des messages d'erreur lors de l'inscription à un cours -> lorsque l'utilisateur esseyait de s'inscrire à un cours auquel il était déjà inscrit l'erreur était pas clair et pouvait être confondu avec un bug.
+    - Documentation de la partie frontend
+        - Explication du fonctionnement de l'application
+        - Ajout des maquettes de l'application
+        - Exemple d'appel API effectué dans le typescript du frontend
+
+La gestion des données de la PWA s'est avérée plûs complexe que prévue. Nous avons réussi à faire le système de login et de déconnexion. Cependant, la complexité du code des autres pages a rendu la tâche plus complexe pour le reste de l'application. Si nous trouvons le temps cette semaine, nous allons essayer de terminer cette partie car mise à part cela, l'application est terminée.
