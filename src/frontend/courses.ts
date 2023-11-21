@@ -1,13 +1,14 @@
 /*
-* Authors : Karamir
-* Date : 03.10.2023
-* Description doing thingss
+* Authors : Amir Younes, Karel Vilém Svoboda
+* Date    : 21.11.2023
+* Page    : Page qui affiche les cours de l'utilisateur
 */
 import { createClient, Photo } from 'pexels';
 
 const apiKey = 'GtgoB6opcDmSkbB1iT8mrTEUh7Te3VWt3feoVe7FccyOYXc4AGcTMdCq';
 const indexedDBRequest = indexedDB.open("myDatabase", 1);
 
+// Affichage des cours de l'utilisateur
 indexedDBRequest.onsuccess = (event) => {
   const db = (event.target as IDBOpenDBRequest).result;
   const transaction = db.transaction("myObjectStore", "readonly");
@@ -49,9 +50,7 @@ indexedDBRequest.onsuccess = (event) => {
             .then(response => response.text())
             .then(result => {
               let resultArray = JSON.parse(result);
-              //console.log(resultArray['photos'][0]['src']['medium']);
               image = resultArray['photos'][0]['src']['medium'];
-              //console.log(resultArray['photos'][0]['src']['medium']);
               const listecours = document.querySelector("#listecours") as HTMLElement;
               if(index % 3 == 0){
                 listecours.innerHTML += `<div class="w3-row-padding">`;
@@ -90,7 +89,7 @@ indexedDBRequest.onerror = (event : any) => {
   console.error("Erreur lors de l'ouverture de la base de données :", (event.target as IDBOpenDBRequest).error);
 };
 
-
+// Permet de noter un cours
 function ClickCourseNote(idCourse: string) {
   let userInput = prompt("Veuillez saisir une note entre 1 et 20 :");
 

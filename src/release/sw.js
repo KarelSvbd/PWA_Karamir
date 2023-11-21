@@ -7,7 +7,6 @@ const cacheFiles = [
     'app.js',
     'manifest.json',
     'icon.png',
-    // course avec S
     'courses.js',
     'courses.html',
     // index

@@ -140,3 +140,7 @@ L'objectif du jour est d'implémenter le stockage des données dans la indexedb.
         - Exemple d'appel API effectué dans le typescript du frontend
 
 La gestion des données de la PWA s'est avérée plûs complexe que prévue. Nous avons réussi à faire le système de login et de déconnexion. Cependant, la complexité du code des autres pages a rendu la tâche plus complexe pour le reste de l'application. Si nous trouvons le temps cette semaine, nous allons essayer de terminer cette partie car mise à part cela, l'application est terminée.
+
+### 21.11.2023
+
+Aujourd'hui c'est le rendu de l'application. Malheureusement, nous avons pas réussi à tout terminer. Cependant, nous nous sommes concentrés sur l'implémentation de la PWA, la proporeté du github et la qualité de la documentation afin que notre projet puisse être bien lisible / exploitable par autruit.

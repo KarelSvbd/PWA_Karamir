@@ -1,6 +1,6 @@
 /*
 * Authors : Amir Younes - Karel Vilém Svoboda
-* Date    : 14.11.2023
+* Date    : 21.11.2023
 * Desc.   : Login of the application
 */
 

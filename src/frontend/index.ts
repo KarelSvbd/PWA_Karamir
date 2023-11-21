@@ -1,13 +1,14 @@
 /*
 * Authors : Amir Younes - Karel Vilém Svoboda
 * Date    : 21.11.2023
-* Desc.   : Display all courses 
+* Desc.   : Affiche tous les cours et donne l'option à l'utilisateur de s'y inscrire
 */
 import { createClient, Photo } from 'pexels';
 
 const apiKey = 'GtgoB6opcDmSkbB1iT8mrTEUh7Te3VWt3feoVe7FccyOYXc4AGcTMdCq';
 const apiUrl = 'https://backendudewish.onrender.com/courses';
 
+// Affiche tous les cours
 fetch(apiUrl)
   .then(response => {
     if (!response.ok) {
@@ -29,6 +30,7 @@ fetch(apiUrl)
       };
 
       let image = "csharpicon.png";
+      //Récupération des images de façon dynamique
       fetch(`https://api.pexels.com/v1/search?query=${cours['name']} ${cours['category']}&per_page=1`, requestOptions)
         .then(response => response.text())
         .then(result => {
@@ -49,6 +51,7 @@ fetch(apiUrl)
               </div>
             </div>
           `;
+          // Affichage 3 par 3
           if (index % 3 == 0) {
             listecours.innerHTML += `<div>`;
           }
@@ -61,6 +64,7 @@ fetch(apiUrl)
     console.error('Error fetching data from API:', error);
   });
 
+// Permet de s'inscrire à un cours
 function ClickCourse(id: string, courseName: string) {
   if (window.confirm(`Voulez-vous vous inscrire au cours de ${courseName}`)) {
 
@@ -115,6 +119,7 @@ function ClickCourse(id: string, courseName: string) {
   }
 }
 
+// Permet de mettre à jour indexeddb avec les nouvelles données
 function updateCourseDataInIndexedDB(db: IDBDatabase) {
   const apiUrl = 'https://backendudewish.onrender.com/courses';
 

@@ -2,6 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 const apiKey = 'GtgoB6opcDmSkbB1iT8mrTEUh7Te3VWt3feoVe7FccyOYXc4AGcTMdCq';
 const indexedDBRequest = indexedDB.open("myDatabase", 1);
+// Affichage des cours de l'utilisateur
 indexedDBRequest.onsuccess = (event) => {
     const db = event.target.result;
     const transaction = db.transaction("myObjectStore", "readonly");
@@ -38,9 +39,7 @@ indexedDBRequest.onsuccess = (event) => {
                         .then(response => response.text())
                         .then(result => {
                         let resultArray = JSON.parse(result);
-                        //console.log(resultArray['photos'][0]['src']['medium']);
                         image = resultArray['photos'][0]['src']['medium'];
-                        //console.log(resultArray['photos'][0]['src']['medium']);
                         const listecours = document.querySelector("#listecours");
                         if (index % 3 == 0) {
                             listecours.innerHTML += `<div class="w3-row-padding">`;
@@ -75,6 +74,7 @@ indexedDBRequest.onsuccess = (event) => {
 indexedDBRequest.onerror = (event) => {
     console.error("Erreur lors de l'ouverture de la base de données :", event.target.error);
 };
+// Permet de noter un cours
 function ClickCourseNote(idCourse) {
     let userInput = prompt("Veuillez saisir une note entre 1 et 20 :");
     if (userInput === null || userInput === "") {

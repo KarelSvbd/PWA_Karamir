@@ -2,6 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 const apiKey = 'GtgoB6opcDmSkbB1iT8mrTEUh7Te3VWt3feoVe7FccyOYXc4AGcTMdCq';
 const apiUrl = 'https://backendudewish.onrender.com/courses';
+// Affiche tous les cours
 fetch(apiUrl)
     .then(response => {
     if (!response.ok) {
@@ -20,6 +21,7 @@ fetch(apiUrl)
             redirect: 'follow'
         };
         let image = "csharpicon.png";
+        //Récupération des images de façon dynamique
         fetch(`https://api.pexels.com/v1/search?query=${cours['name']} ${cours['category']}&per_page=1`, requestOptions)
             .then(response => response.text())
             .then(result => {
@@ -39,6 +41,7 @@ fetch(apiUrl)
               </div>
             </div>
           `;
+            // Affichage 3 par 3
             if (index % 3 == 0) {
                 listecours.innerHTML += `<div>`;
             }
@@ -50,6 +53,7 @@ fetch(apiUrl)
     .catch(error => {
     console.error('Error fetching data from API:', error);
 });
+// Permet de s'inscrire à un cours
 function ClickCourse(id, courseName) {
     if (window.confirm(`Voulez-vous vous inscrire au cours de ${courseName}`)) {
         const indexedDBRequest = indexedDB.open("myDatabase", 1);
@@ -99,6 +103,7 @@ function ClickCourse(id, courseName) {
         alert(`VOUS VOUS ÊTES PAS INSCRIT AU COURS DE ${courseName}`);
     }
 }
+// Permet de mettre à jour indexeddb avec les nouvelles données
 function updateCourseDataInIndexedDB(db) {
     const apiUrl = 'https://backendudewish.onrender.com/courses';
     fetch(apiUrl)

@@ -6,7 +6,7 @@ Classe  : T.IS-E2A
 Cours   : PDA
 
 Desc.   : Application frontend du projet Udewish
-Version : 0.1
+Version : 1.0
 ```
 
 ### Introduction 
