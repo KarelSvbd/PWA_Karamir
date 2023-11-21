@@ -1,5 +1,5 @@
 /*
-* Authors : Karamir
+* Authors : Amir Younes - Karel Vilém Svoboda
 * Date    : 14.11.2023
 * Desc.   : Login of the application
 */

@@ -61,7 +61,6 @@ indexedDBRequest.onsuccess = (event) => {
                         index++;
                     })
                         .catch(error => console.log('error', error));
-                    //console.log(cours);
                 });
             })
                 .catch(error => {

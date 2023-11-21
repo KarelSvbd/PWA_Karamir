@@ -1,7 +1,7 @@
 /*
-* Authors : Karamir
-* Date : 04.10.2023
-* Description doing thingss
+* Authors : Amir Younes - Karel Vilém Svoboda
+* Date    : 21.11.2023
+* Desc.   : Display all courses 
 */
 import { createClient, Photo } from 'pexels';
 
