@@ -25,8 +25,9 @@ Cette application sert de Frontend au projet Udewish. L'objectif est de créer u
 
 #### Documentation
 - [Journal de bord](./Doc/jdb.md)
-- [Documentation](./Doc/Documentation%20frontend.md)
+- [Documentation](./Doc/Documentation_frontend.md)
 - [Maquettes](./Doc/maquettes/)
+- [Screenshots](./Doc/screenshots/)
 
 ---
 
